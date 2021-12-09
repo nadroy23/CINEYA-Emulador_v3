@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Landing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class LandingController
@@ -47,8 +48,14 @@ class LandingController extends Controller
 
         $landing = Landing::create($request->all());
 
-        return redirect()->route('landings.index')
+        if(Auth::check()){
+            return redirect()->route('landings.index')
             ->with('success', 'Landing created successfully.');
+        }
+        else{
+            return view('/landing');
+        }
+        
     }
 
     /**

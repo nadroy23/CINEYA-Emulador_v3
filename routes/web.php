@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
 
 
 Auth::routes();
 
+//Route::get('/', 'App\Http\Controllers\LandingController@create');
+Route::get('/', [App\Http\Controllers\landing::class, 'index']);
+Route::get('/landing', [App\Http\Controllers\landing::class, 'index']);
+Route::post('landings', 'App\Http\Controllers\landing@store');
+
 Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
 Route::resource('peliculas', App\Http\Controllers\PeliculaController::class)->middleware('auth');
 Route::resource('empleados', App\Http\Controllers\EmpleadoController::class)->middleware('auth');
-Route::resource('landings', App\Http\Controllers\LandingController::class)->middleware('auth');
+Route::resource('landings', App\Http\Controllers\LandingController::class);
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
