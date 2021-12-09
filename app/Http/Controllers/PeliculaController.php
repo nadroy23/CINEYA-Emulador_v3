@@ -113,7 +113,7 @@ class PeliculaController extends Controller
         Pelicula::where('id','=',$id)->update($datos);
 
         return redirect()->route('peliculas.index')
-            ->with('success', 'Pelicula updated successfully');
+            ->with('success', 'Pelicula se Actualizo con Exito!');
     }
 
     /**
@@ -128,6 +128,6 @@ class PeliculaController extends Controller
         $pelicula = Pelicula::find($id)->delete();
         
         return redirect()->route('peliculas.index')
-            ->with('success', 'Pelicula deleted successfully');
+            ->with('success', 'Pelicula se Elimino con Exito!');
     }
 }

@@ -25,6 +25,7 @@ Auth::routes();
 //Route::get('/', 'App\Http\Controllers\LandingController@create');
 Route::get('/', [App\Http\Controllers\landing::class, 'index']);
 Route::get('/landing', [App\Http\Controllers\landing::class, 'index']);
+
 Route::post('landings', 'App\Http\Controllers\landing@store');
 
 Route::resource('categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');

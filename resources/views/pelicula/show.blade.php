@@ -1,20 +1,18 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $pelicula->name ?? 'Show Pelicula' }}
+    {{ $pelicula->name ?? 'Detalles Pelicula' }}
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="content container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Pelicula</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('peliculas.index') }}"> Back</a>
+                            <span class="card-title">Detalles Pelicula</span>
+                            <a class="btn btn-outline-danger" href="{{ route('peliculas.index') }}"> Cerrar</a>
                         </div>
                     </div>
 
@@ -34,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Link:</strong>
-                            {{ $pelicula->link }}
+                            <td><a href="{{ $pelicula->link }}">{{ $pelicula->link }}</a> </td>
                         </div>
 
                     </div>

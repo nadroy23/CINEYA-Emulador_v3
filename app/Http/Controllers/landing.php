@@ -11,4 +11,10 @@ class landing extends Controller
     {
         return view('landing');
     }    
+
+    public function create()
+    {
+        $landing = new landing();
+        return view('/landing',compact('landing'));
+    }
 }

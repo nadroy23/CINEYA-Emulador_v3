@@ -11,10 +11,8 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Landing</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('landings.index') }}"> Back</a>
+                            <span class="card-title">Detalles Landing</span>
+                            <a class="btn btn-outline-danger" href="{{ route('landings.index') }}"> Cerrar</a>
                         </div>
                     </div>
 

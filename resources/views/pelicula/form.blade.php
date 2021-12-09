@@ -9,21 +9,22 @@
         <div class="form-group">
             {{ Form::label('categoria_id') }}
             {{ Form::select('categoria_id', $categoria, $pelicula->categoria_id, ['class' => 'form-control' . ($errors->has('categoria_id') ? ' is-invalid' : ''), 'placeholder' => '--> Selecionar <--']) }}
-            {!! $errors->first('categoria_id', '<div class="invalid-feedback">:message</p>') !!}
+            {!! $errors->first('categoria_id', '<div class="invalid-feedback">Seleccione una categoria!</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('nombre') }}
             {{ Form::text('nombre', $pelicula->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-            {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
+            {!! $errors->first('nombre', '<div class="invalid-feedback">Se requiere un nombre!</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('link') }}
             {{ Form::text('link', $pelicula->link, ['class' => 'form-control' . ($errors->has('link') ? ' is-invalid' : ''), 'placeholder' => 'Link']) }}
-            {!! $errors->first('link', '<div class="invalid-feedback">:message</p>') !!}
+            {!! $errors->first('link', '<div class="invalid-feedback">Se requiere un link!</p>') !!}
         </div>
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <br>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </div>

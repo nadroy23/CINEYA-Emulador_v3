@@ -5,16 +5,14 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="content container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Categoria</span>
-                        </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('categorias.index') }}"> Back</a>
+                            <span class="card-title">Detalles Categoria</span>
+                            <a class="btn btn-outline-danger" href="{{ route('categorias.index') }}"> Cerrar</a>
                         </div>
                     </div>
 

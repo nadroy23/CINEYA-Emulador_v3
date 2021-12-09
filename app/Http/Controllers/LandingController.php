@@ -32,6 +32,7 @@ class LandingController extends Controller
      */
     public function create()
     {
+
         $landing = new Landing();
         return view('landing.create', compact('landing'));
     }
@@ -48,14 +49,12 @@ class LandingController extends Controller
 
         $landing = Landing::create($request->all());
 
-        if(Auth::check()){
+        if (Auth::check()) {
             return redirect()->route('landings.index')
-            ->with('success', 'Landing created successfully.');
-        }
-        else{
+                ->with('success', 'Landing se Creo con Exito!');
+        } else {
             return view('/landing');
         }
-        
     }
 
     /**
@@ -98,7 +97,7 @@ class LandingController extends Controller
         $landing->update($request->all());
 
         return redirect()->route('landings.index')
-            ->with('success', 'Landing updated successfully');
+            ->with('success', 'Landing se Actualizo con Exito!');
     }
 
     /**
@@ -111,6 +110,6 @@ class LandingController extends Controller
         $landing = Landing::find($id)->delete();
 
         return redirect()->route('landings.index')
-            ->with('success', 'Landing deleted successfully');
+            ->with('success', 'Landing se Elimino con Exito!');
     }
 }

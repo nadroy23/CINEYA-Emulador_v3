@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Landing
+    Actualizar Landing
 @endsection
 
 @section('content')
@@ -13,7 +13,8 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Landing</span>
+                        <span class="card-title">Actualizar Landing</span>
+                        <a class="btn btn-outline-danger" href="{{ route('landings.index') }}"> Cerrar</a>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('landings.update', $landing->id) }}"  role="form" enctype="multipart/form-data">
