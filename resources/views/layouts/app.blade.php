@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -19,7 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
 </head>
 
 <body style="background-color:#e6e6e6">
@@ -27,7 +29,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{'CineYa'}}
+                    {{ 'CineYa' }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -38,26 +40,30 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        @if (Auth::check())
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('categorias.index') }}">{{ __('Categorias') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('peliculas.index') }}">{{ __('Peliculas') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('empleados.index') }}">{{ __('Empleados') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('landings.index') }}">{{ __('Landings') }}</a>
-                            </li>
-                        </ul>
-                    @endif
+                        <?php 
+                        if (Auth::check()){
+                            ?>
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        href="{{ route('categorias.index') }}">{{ __('Categorias') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        href="{{ route('peliculas.index') }}">{{ __('Peliculas') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        href="{{ route('empleados.index') }}">{{ __('Empleados') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                        href="{{ route('landings.index') }}">{{ __('Landings') }}</a>
+                                </li>
+                            </ul>
+                        <?php 
+                        }
+                        ?>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -84,7 +90,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -100,7 +106,7 @@
             </div>
         </nav>
 
-        <main class="py-4" >
+        <main class="py-4">
             @yield('content')
         </main>
     </div>

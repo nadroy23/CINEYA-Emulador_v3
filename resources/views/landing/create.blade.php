@@ -14,8 +14,9 @@
                 <div class="card card-default">
                     <div class="card-header">
                         <span class="card-title">Crear Landing</span>
+                        @if (Auth::check())
                         <a class="btn btn-outline-danger" href="{{ route('landings.index') }}"> Cerrar</a>
-                    </div>
+                        @endif
                     <div class="card-body">
                         <form method="POST" action="{{ route('landings.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf

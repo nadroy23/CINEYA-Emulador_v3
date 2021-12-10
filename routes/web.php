@@ -18,8 +18,6 @@ use Illuminate\Support\Facades\Storage;
 
 
 
-
-
 Auth::routes();
 
 //Route::get('/', 'App\Http\Controllers\LandingController@create');
